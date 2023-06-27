@@ -1,31 +1,57 @@
-.screen{
+.screen {
     height: 300px;
     width: 225px;
 }
 
-  .grid-container{
+/* .grid-container{
     display: grid;
 
     grid-template-columns: 20% 20% 20% 20% 20% ;
     grid-template-rows: 25% 25% 25% 25%;
 
-    grid-template-areas:
-    'numbr numbr numbr opert opert'
-    'numbr numbr numbr opert opert'
-    'numbr numbr numbr funct funct'
-    'numbr numbr empty funct funct';
-
     align-items: center;
     justify-items: center;
-} 
+}  */
 
-.item-numbr { grid-area: numbr; }
-.item-opert { grid-area: opert; }
-.item-empty { grid-area: empty; }
-.item-funct { grid-area: funct; } 
+.grid-numbr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
 
-.fit { 
+.grid-opert {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.grid-funct {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#container-numbr {
+    float: left;
+    height: 100%;
+    width: 60%;
+}
+
+#container-opert {
+    float: right;
+    float: top;
+    height: 50%;
+    width: 40%;
+}
+
+#container-funct {
+    float: right;
+    float: bottom;
+    height: 50%;
+    width: 40%;
+}
+
+.fit {
     height: 100%;
     width: 100%;
 }
-

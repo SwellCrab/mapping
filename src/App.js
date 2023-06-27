@@ -3,52 +3,61 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  // const [data, setData] = useState('');
-  // const btns = [];
+   const [data, setData] = useState('');
+   const numbr_btns = [];
+   const opert_btns = [];
 
-  // ['1', '2', '3', '4', '5', '6', '7', '8', '9'].forEach(i => {
-  //   btns.push(
-  //     <div>
-  //       <button className = "fit" onClick={e => { setData(data + e.target.value) }}
-  //       value = {i}
-  //       key = {i}>
-  //       {i}  
-  //       </button>
+   const [operatorflag, setOperatorflag] = useState(false);
+   const [operator, setOperator] = useState(' ');
 
-  //     </div>
+   ['1', '2', '3', '4', '5', '6', '7', '8', '9','0','00','.'].forEach(i => {
+    numbr_btns.push(
+       <div>
+         <button className = "fit" onClick={e => { setData(data + e.target.value) }}
+         value = {i}
+         key = {i}>
+         {i}  
+         </button>
+       </div>
+     )
+   });
 
-  //   )
-  // })
+   ['+', '-', 'x', '%'].forEach(i => {
+    opert_btns.push(
+       <div>
+         <button className = "fit" onClick={e => [ setData(data + e.target.value), handleOperator(e.target.value)]}
+         value = {i}
+         key = {i}>
+         {i}  
+         </button>
+       </div>
+     )
+   });
+
+
+   const handleOperator = (value) => {
+    if (operatorflag) {
+      alert('An operator is already selected, please clear.');
+    } else {
+      setOperator(value);
+      setOperatorflag(true);
+      setData('');
+
+    }
+
+  };
 
   return (
     <div className="screen">
-      
-      <div>
-        {/* {data} */}
+      <div id='container-numbr' class='grid-numbr'>
+        {numbr_btns}
       </div>
-      <div className="grid-container">
-        {/* {btns} */}
-
-        <div class='item-numbr'>1</div>
-        <div class='item-numbr'>2</div>
-        <div class='item-numbr'>3</div>
-        <div class='item-numbr'>4</div>
-        <div class='item-numbr'>5</div>
-        <div class='item-numbr'>6</div>
-        <div class='item-numbr'>7</div>
-        <div class='item-numbr'>8</div>
-        <div class='item-numbr'>9</div>
-        <div class='item-numbr'>0</div>
-        <div class='item-numbr'>.</div>
-        <div class='item-opert'>+</div>
-        <div class='item-opert'>-</div>
-        <div class='item-opert'>x</div>
-        <div class='item-opert'>%</div>
-        <div class='item-funct'>=</div>
-        <div class='item-funct'>clr</div>
-        <div class='item-empty'></div>
-
-
+      <div id='container-opert' class='grid-opert'>
+        {opert_btns}
+      </div>
+      <div id='container-funct' class='grid-funct'>
+        <div>=</div>
+        <div>clr</div>
       </div>
     </div>
   );
