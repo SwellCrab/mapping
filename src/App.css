@@ -3,16 +3,6 @@
     width: 225px;
 }
 
-/* .grid-container{
-    display: grid;
-
-    grid-template-columns: 20% 20% 20% 20% 20% ;
-    grid-template-rows: 25% 25% 25% 25%;
-
-    align-items: center;
-    justify-items: center;
-}  */
-
 .grid-numbr {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
